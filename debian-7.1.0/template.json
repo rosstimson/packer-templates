@@ -30,7 +30,7 @@
         "locale=en_US <wait>",
         "kbd-chooser/method=us <wait>",
         "keyboard-configuration/xkb-keymap=us <wait>",
-        "netcfg/get_hostname={{ .Name }} <wait>",
+        "netcfg/get_hostname=debian-71 <wait>",
         "netcfg/get_domain=vagrantup.com <wait>",
         "fb=false <wait>",
         "debconf/frontend=noninteractive <wait>",
@@ -49,7 +49,7 @@
       "ssh_password": "vagrant",
       "ssh_port": 22,
       "ssh_wait_timeout": "10000s",
-      "shutdown_command": "echo '/sbin/shutdown -h -P now' > shutdown.sh; echo 'vagrant'|sudo -S sh 'shutdown.sh'",
+      "shutdown_command": "sudo /sbin/shutdown -hP now",
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "virtualbox_version_file": ".vbox_version",
       "vboxmanage": [
@@ -57,7 +57,7 @@
           "modifyvm",
           "{{.Name}}",
           "--memory",
-          "384"
+          "512"
         ],
         [
           "modifyvm",
@@ -66,6 +66,12 @@
           "1"
         ]
       ]
+    }
+  ],
+  "post-processors": [
+    {
+      "type": "vagrant",
+      "keep_input_artifact": true
     }
   ]
 }
