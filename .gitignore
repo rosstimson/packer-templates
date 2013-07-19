@@ -1,0 +1,6 @@
+# Junk / caches
+packer_cache/
+output-virtualbox/
+
+# Generated vagrant boxes
+*.box
