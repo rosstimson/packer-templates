@@ -1,4 +1,1 @@
-#!/bin/bash -eux
-
-apt-get update
-apt-get -y upgrade
+../../.debian/update.sh
